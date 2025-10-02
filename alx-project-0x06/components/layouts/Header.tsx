@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Button from "../common/Button";
 import { usePathname } from "next/navigation";
-import { useAppSelector } from "@/store/store";
+import { useSelector } from "react-redux";
+import { type RootState } from "@/store/store"; 
 
 const Header: React.FC = () => {
   const pathname = usePathname();
-  // Get the current count value from the Redux store
-  const count = useAppSelector((state) => state.counter.value);
+  const count = useSelector((state: RootState) => state.counter.value);
 
   return (
     <header className="fixed w-full bg-white shadow-md z-10">
